@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -34,19 +33,11 @@ var _BuggyMap = map[Buggy]string{
 }
 
 // String implements the Stringer interface.
-func (x Buggy) String() string {
-	if str, ok := _BuggyMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Buggy(%d)", x)
-}
+func (x Buggy) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Buggy) IsValid() bool {
-	_, ok := _BuggyMap[x]
-	return ok
-}
+func (x Buggy) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _BuggyValue = map[string]Buggy{
 	_BuggyName[0:1]: BuggyA,
@@ -55,9 +46,4 @@ var _BuggyValue = map[string]Buggy{
 }
 
 // ParseBuggy attempts to convert a string to a Buggy.
-func ParseBuggy(name string) (Buggy, error) {
-	if x, ok := _BuggyValue[name]; ok {
-		return x, nil
-	}
-	return Buggy(0), fmt.Errorf("%s is %w", name, ErrInvalidBuggy)
-}
+func ParseBuggy(name string) (Buggy, error) { _ = "STUB: not implemented"; return *new(Buggy), nil }

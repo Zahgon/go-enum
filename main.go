@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"runtime/debug"
 	"strings"
 	"sync"
 
@@ -51,31 +50,7 @@ type rootT struct {
 	OutputSuffix      string
 }
 
-func initializeVersion() {
-	versionOnce.Do(func() {
-		if version != "" {
-			return
-		}
-		buildInfo, ok := debug.ReadBuildInfo()
-		if !ok {
-			return
-		}
-		builtBy = "go install"
-		version = buildInfo.Main.Version
-		for _, setting := range buildInfo.Settings {
-			switch setting.Key {
-			case "vcs.revision":
-				commit = setting.Value
-			case "vcs.time":
-				date = setting.Value
-			case "vcs.modified":
-				if setting.Value == "true" {
-					commit += "-modified"
-				}
-			}
-		}
-	})
-}
+func initializeVersion() { _ = "STUB: not implemented"; return }
 
 func main() {
 	var argv rootT
@@ -350,14 +325,4 @@ func main() {
 // In order to maintain existing capabilities, only glob when a * is in the path.
 // Leave execution on par with old method in case there are bad patterns in use that somehow
 // work without the Glob method.
-func globFilenames(filename string) ([]string, error) {
-	if strings.Contains(filename, "*") {
-		matches, err := filepath.Glob(filename)
-		if err != nil {
-			return []string{}, fmt.Errorf("failed parsing glob filepath\nInputFile=%s\nError=%s", color.Cyan(filename), color.RedBg(err))
-		}
-		return matches, nil
-	} else {
-		return []string{filename}, nil
-	}
-}
+func globFilenames(filename string) ([]string, error) { _ = "STUB: not implemented"; return nil, nil }

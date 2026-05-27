@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 	"strings"
 )
 
@@ -60,19 +59,11 @@ var _ColorMap = map[Color]string{
 }
 
 // String implements the Stringer interface.
-func (x Color) String() string {
-	if str, ok := _ColorMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Color(%d)", x)
-}
+func (x Color) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Color) IsValid() bool {
-	_, ok := _ColorMap[x]
-	return ok
-}
+func (x Color) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _ColorValue = map[string]Color{
 	_ColorName[0:5]:                    ColorBlack,
@@ -100,46 +91,25 @@ var _ColorValue = map[string]Color{
 }
 
 // ParseColor attempts to convert a string to a Color.
-func ParseColor(name string) (Color, error) {
-	if x, ok := _ColorValue[name]; ok {
-		return x, nil
-	}
-	return Color(0), fmt.Errorf("%s is %w", name, ErrInvalidColor)
-}
+func ParseColor(name string) (Color, error) { _ = "STUB: not implemented"; return *new(Color), nil }
 
 // MustParseColor converts a string to a Color, and panics if is not valid.
-func MustParseColor(name string) Color {
-	val, err := ParseColor(name)
-	if err != nil {
-		panic(err)
-	}
-	return val
-}
+func MustParseColor(name string) Color { _ = "STUB: not implemented"; return *new(Color) }
 
 func (x Color) Ptr() *Color {
-	return &x
-}
+	_ = "STUB: not implemented"
 
-// MarshalText implements the text marshaller method.
-func (x Color) MarshalText() ([]byte, error) {
-	return []byte(x.String()), nil
-}
-
-// UnmarshalText implements the text unmarshaller method.
-func (x *Color) UnmarshalText(text []byte) error {
-	name := string(text)
-	tmp, err := ParseColor(name)
-	if err != nil {
-		return err
-	}
-	*x = tmp
+	// MarshalText implements the text marshaller method.
 	return nil
 }
+
+func (x Color) MarshalText() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
+
+// UnmarshalText implements the text unmarshaller method.
+func (x *Color) UnmarshalText(text []byte) error { _ = "STUB: not implemented"; return nil }
 
 // AppendText appends the textual representation of itself to the end of b
 // (allocating a larger slice if necessary) and returns the updated slice.
 //
 // Implementations must not retain b, nor mutate any bytes within b[:len(b)].
-func (x *Color) AppendText(b []byte) ([]byte, error) {
-	return append(b, x.String()...), nil
-}
+func (x *Color) AppendText(b []byte) ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }

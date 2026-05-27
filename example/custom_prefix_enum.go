@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -34,19 +33,11 @@ var _ProductMap = map[Product]string{
 }
 
 // String implements the Stringer interface.
-func (x Product) String() string {
-	if str, ok := _ProductMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Product(%d)", x)
-}
+func (x Product) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Product) IsValid() bool {
-	_, ok := _ProductMap[x]
-	return ok
-}
+func (x Product) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _ProductValue = map[string]Product{
 	_ProductName[0:5]:   AcmeIncProductAnvil,
@@ -56,8 +47,6 @@ var _ProductValue = map[string]Product{
 
 // ParseProduct attempts to convert a string to a Product.
 func ParseProduct(name string) (Product, error) {
-	if x, ok := _ProductValue[name]; ok {
-		return x, nil
-	}
-	return Product(0), fmt.Errorf("%s is %w", name, ErrInvalidProduct)
+	_ = "STUB: not implemented"
+	return *new(Product), nil
 }

@@ -11,7 +11,6 @@ package globs
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -55,19 +54,11 @@ var _NumberMap = map[Number]string{
 }
 
 // String implements the Stringer interface.
-func (x Number) String() string {
-	if str, ok := _NumberMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Number(%d)", x)
-}
+func (x Number) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Number) IsValid() bool {
-	_, ok := _NumberMap[x]
-	return ok
-}
+func (x Number) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _NumberValue = map[string]Number{
 	_NumberName[0:1]:  Number0,
@@ -83,9 +74,4 @@ var _NumberValue = map[string]Number{
 }
 
 // ParseNumber attempts to convert a string to a Number.
-func ParseNumber(name string) (Number, error) {
-	if x, ok := _NumberValue[name]; ok {
-		return x, nil
-	}
-	return Number(0), fmt.Errorf("%s is %w", name, ErrInvalidNumber)
-}
+func ParseNumber(name string) (Number, error) { _ = "STUB: not implemented"; return *new(Number), nil }

@@ -32,23 +32,18 @@ var _ShopNames = []string{
 }
 
 // ShopNames returns a list of possible string values of Shop.
-func ShopNames() []string {
-	tmp := make([]string, len(_ShopNames))
-	copy(tmp, _ShopNames)
-	return tmp
-}
+func ShopNames() []string { _ = "STUB: not implemented"; return nil }
 
 // String implements the Stringer interface.
 func (x Shop) String() string {
-	return string(x)
+	_ = "STUB: not implemented"
+
+	// IsValid provides a quick way to determine if the typed value is
+	// part of the allowed enumerated values
+	return ""
 }
 
-// IsValid provides a quick way to determine if the typed value is
-// part of the allowed enumerated values
-func (x Shop) IsValid() bool {
-	_, err := ParseShop(string(x))
-	return err == nil
-}
+func (x Shop) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _ShopValue = map[string]Shop{
 	"SOME_PLACE_AWESOME": AcmeInc_SOME_PLACE_AWESOME,
@@ -57,32 +52,16 @@ var _ShopValue = map[string]Shop{
 }
 
 // ParseShop attempts to convert a string to a Shop.
-func ParseShop(name string) (Shop, error) {
-	if x, ok := _ShopValue[name]; ok {
-		return x, nil
-	}
-	return Shop(""), fmt.Errorf("%s is %w", name, ErrInvalidShop)
-}
+func ParseShop(name string) (Shop, error) { _ = "STUB: not implemented"; return *new(Shop), nil }
 
 // MarshalText implements the text marshaller method.
-func (x Shop) MarshalText() ([]byte, error) {
-	return []byte(string(x)), nil
-}
+func (x Shop) MarshalText() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalText implements the text unmarshaller method.
-func (x *Shop) UnmarshalText(text []byte) error {
-	tmp, err := ParseShop(string(text))
-	if err != nil {
-		return err
-	}
-	*x = tmp
-	return nil
-}
+func (x *Shop) UnmarshalText(text []byte) error { _ = "STUB: not implemented"; return nil }
 
 // AppendText appends the textual representation of itself to the end of b
 // (allocating a larger slice if necessary) and returns the updated slice.
 //
 // Implementations must not retain b, nor mutate any bytes within b[:len(b)].
-func (x *Shop) AppendText(b []byte) ([]byte, error) {
-	return append(b, x.String()...), nil
-}
+func (x *Shop) AppendText(b []byte) ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }

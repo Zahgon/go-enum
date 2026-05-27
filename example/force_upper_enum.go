@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -31,19 +30,11 @@ var _ForceUpperTypeMap = map[ForceUpperType]string{
 }
 
 // String implements the Stringer interface.
-func (x ForceUpperType) String() string {
-	if str, ok := _ForceUpperTypeMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("ForceUpperType(%d)", x)
-}
+func (x ForceUpperType) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x ForceUpperType) IsValid() bool {
-	_, ok := _ForceUpperTypeMap[x]
-	return ok
-}
+func (x ForceUpperType) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _ForceUpperTypeValue = map[string]ForceUpperType{
 	_ForceUpperTypeName[0:8]:  ForceUpperTypeDataSwap,
@@ -52,8 +43,6 @@ var _ForceUpperTypeValue = map[string]ForceUpperType{
 
 // ParseForceUpperType attempts to convert a string to a ForceUpperType.
 func ParseForceUpperType(name string) (ForceUpperType, error) {
-	if x, ok := _ForceUpperTypeValue[name]; ok {
-		return x, nil
-	}
-	return ForceUpperType(0), fmt.Errorf("%s is %w", name, ErrInvalidForceUpperType)
+	_ = "STUB: not implemented"
+	return *new(ForceUpperType), nil
 }

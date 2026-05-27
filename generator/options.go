@@ -28,187 +28,82 @@ type GeneratorConfig struct {
 	TemplateFileNames []string          `json:"template_file_names"`
 }
 
-func NewGeneratorConfig() *GeneratorConfig {
-	return &GeneratorConfig{
-		NoPrefix:         false,
-		ReplacementNames: map[string]string{},
-		JSONPkg:          "encoding/json",
-	}
-}
+func NewGeneratorConfig() *GeneratorConfig { _ = "STUB: not implemented"; return nil }
 
 // Option is a function that modifies a Generator
 type Option func(*GeneratorConfig)
 
 // WithNoPrefix is used to change the enum const values generated to not have the enum on them.
-func WithNoPrefix() Option {
-	return func(g *GeneratorConfig) {
-		g.NoPrefix = true
-	}
-}
+func WithNoPrefix() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithNoIota is used to generate enum constants with explicit values instead of using iota.
-func WithNoIota() Option {
-	return func(g *GeneratorConfig) {
-		g.NoIota = true
-	}
-}
+func WithNoIota() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithLowercaseVariant is used to change the enum const values generated to not have the enum on them.
-func WithLowercaseVariant() Option {
-	return func(g *GeneratorConfig) {
-		g.LowercaseLookup = true
-	}
-}
+func WithLowercaseVariant() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithCaseInsensitiveParse is used to change the enum const values generated to not have the enum on them.
-func WithCaseInsensitiveParse() Option {
-	return func(g *GeneratorConfig) {
-		g.LowercaseLookup = true
-		g.CaseInsensitive = true
-	}
-}
+func WithCaseInsensitiveParse() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithMarshal is used to add marshalling to the enum
-func WithMarshal() Option {
-	return func(g *GeneratorConfig) {
-		g.Marshal = true
-	}
-}
+func WithMarshal() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithSQLDriver is used to add marshalling to the enum
-func WithSQLDriver() Option {
-	return func(g *GeneratorConfig) {
-		g.SQL = true
-	}
-}
+func WithSQLDriver() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithSQLInt is used to signal a string to be stored as an int.
-func WithSQLInt() Option {
-	return func(g *GeneratorConfig) {
-		g.SQLInt = true
-	}
-}
+func WithSQLInt() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithFlag is used to add flag methods to the enum
-func WithFlag() Option {
-	return func(g *GeneratorConfig) {
-		g.Flag = true
-	}
-}
+func WithFlag() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithNames is used to add Names methods to the enum
-func WithNames() Option {
-	return func(g *GeneratorConfig) {
-		g.Names = true
-	}
-}
+func WithNames() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithValues is used to add Values methods to the enum
-func WithValues() Option {
-	return func(g *GeneratorConfig) {
-		g.Values = true
-	}
-}
+func WithValues() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithoutSnakeToCamel is used to add flag methods to the enum
-func WithoutSnakeToCamel() Option {
-	return func(g *GeneratorConfig) {
-		g.LeaveSnakeCase = true
-	}
-}
+func WithoutSnakeToCamel() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithJsonPkg is used to add a custom json package to the imports
-func WithJsonPkg(pkg string) Option {
-	return func(g *GeneratorConfig) {
-		g.JSONPkg = pkg
-	}
-}
+func WithJsonPkg(pkg string) Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithPrefix is used to add a custom prefix to the enum constants
-func WithPrefix(prefix string) Option {
-	return func(g *GeneratorConfig) {
-		g.Prefix = prefix
-	}
-}
+func WithPrefix(prefix string) Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithPtr adds a way to get a pointer value straight from the const value.
-func WithPtr() Option {
-	return func(g *GeneratorConfig) {
-		g.Ptr = true
-	}
-}
+func WithPtr() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithSQLNullInt is used to add a null int option for SQL interactions.
-func WithSQLNullInt() Option {
-	return func(g *GeneratorConfig) {
-		g.SQLNullInt = true
-	}
-}
+func WithSQLNullInt() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithSQLNullStr is used to add a null string option for SQL interactions.
-func WithSQLNullStr() Option {
-	return func(g *GeneratorConfig) {
-		g.SQLNullStr = true
-	}
-}
+func WithSQLNullStr() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithMustParse is used to add a method `MustParse` that will panic on failure.
-func WithMustParse() Option {
-	return func(g *GeneratorConfig) {
-		g.MustParse = true
-	}
-}
+func WithMustParse() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithForceLower is used to force enums names to lower case while keeping variable names the same.
-func WithForceLower() Option {
-	return func(g *GeneratorConfig) {
-		g.ForceLower = true
-	}
-}
+func WithForceLower() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithForceUpper is used to force enums names to upper case while keeping variable names the same.
-func WithForceUpper() Option {
-	return func(g *GeneratorConfig) {
-		g.ForceUpper = true
-	}
-}
+func WithForceUpper() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithNoComments is used to remove auto generated comments from the enum.
-func WithNoComments() Option {
-	return func(g *GeneratorConfig) {
-		g.NoComments = true
-	}
-}
+func WithNoComments() Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithBuildTags will add build tags to the generated file.
-func WithBuildTags(tags ...string) Option {
-	return func(g *GeneratorConfig) {
-		g.BuildTags = append(g.BuildTags, tags...)
-	}
-}
+func WithBuildTags(tags ...string) Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithAliases will set up aliases for the generator.
-func WithAliases(aliases map[string]string) Option {
-	return func(g *GeneratorConfig) {
-		if aliases == nil {
-			return
-		}
-		g.ReplacementNames = aliases
-	}
-}
+func WithAliases(aliases map[string]string) Option { _ = "STUB: not implemented"; return *new(Option) }
 
 // WithTemplates is used to provide the filenames of additional templates.
-func WithTemplates(filenames ...string) Option {
-	return func(g *GeneratorConfig) {
-		// Note: Template processing is deferred to the generator constructor
-		// because we need access to the template collection and knownTemplates
-		g.TemplateFileNames = append(g.TemplateFileNames, filenames...)
-	}
-}
+func WithTemplates(filenames ...string) Option { _ = "STUB: not implemented"; return *new(Option) }
+
+// Note: Template processing is deferred to the generator constructor
+// because we need access to the template collection and knownTemplates
 
 // WithNoParse is used to remove the public Parse method from the enum.
-func WithNoParse() Option {
-	return func(g *GeneratorConfig) {
-		g.NoParse = true
-	}
-}
+func WithNoParse() Option { _ = "STUB: not implemented"; return *new(Option) }

@@ -12,7 +12,6 @@ package example
 import (
 	"database/sql/driver"
 	"errors"
-	"fmt"
 )
 
 const (
@@ -32,15 +31,14 @@ var ErrInvalidUnparsedSqlString = errors.New("not a valid UnparsedSqlString")
 
 // String implements the Stringer interface.
 func (x UnparsedSqlString) String() string {
-	return string(x)
+	_ = "STUB: not implemented"
+
+	// IsValid provides a quick way to determine if the typed value is
+	// part of the allowed enumerated values
+	return ""
 }
 
-// IsValid provides a quick way to determine if the typed value is
-// part of the allowed enumerated values
-func (x UnparsedSqlString) IsValid() bool {
-	_, err := parseUnparsedSqlString(string(x))
-	return err == nil
-}
+func (x UnparsedSqlString) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _UnparsedSqlStringValue = map[string]UnparsedSqlString{
 	"A": UnparsedSqlStringA,
@@ -52,50 +50,25 @@ var _UnparsedSqlStringValue = map[string]UnparsedSqlString{
 
 // parseUnparsedSqlString attempts to convert a string to a UnparsedSqlString.
 func parseUnparsedSqlString(name string) (UnparsedSqlString, error) {
-	if x, ok := _UnparsedSqlStringValue[name]; ok {
-		return x, nil
-	}
-	return UnparsedSqlString(""), fmt.Errorf("%s is %w", name, ErrInvalidUnparsedSqlString)
+	_ = "STUB: not implemented"
+	return *new(UnparsedSqlString), nil
 }
 
 var errUnparsedSqlStringNilPtr = errors.New("value pointer is nil") // one per type for package clashes
 
 // Scan implements the Scanner interface.
 func (x *UnparsedSqlString) Scan(value interface{}) (err error) {
-	if value == nil {
-		*x = UnparsedSqlString("")
-		return
-	}
-
-	// A wider range of scannable types.
-	// driver.Value values at the top of the list for expediency
-	switch v := value.(type) {
-	case string:
-		*x, err = parseUnparsedSqlString(v)
-	case []byte:
-		*x, err = parseUnparsedSqlString(string(v))
-	case UnparsedSqlString:
-		*x = v
-	case *UnparsedSqlString:
-		if v == nil {
-			return errUnparsedSqlStringNilPtr
-		}
-		*x = *v
-	case *string:
-		if v == nil {
-			return errUnparsedSqlStringNilPtr
-		}
-		*x, err = parseUnparsedSqlString(*v)
-	default:
-		return errors.New("invalid type for UnparsedSqlString")
-	}
-
-	return
+	_ = "STUB: not implemented"
+	return nil
 }
+
+// A wider range of scannable types.
+// driver.Value values at the top of the list for expediency
 
 // Value implements the driver Valuer interface.
 func (x UnparsedSqlString) Value() (driver.Value, error) {
-	return x.String(), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }
 
 const (
@@ -124,19 +97,11 @@ var _UnparsedSqlValuesMap = map[UnparsedSqlValues]string{
 }
 
 // String implements the Stringer interface.
-func (x UnparsedSqlValues) String() string {
-	if str, ok := _UnparsedSqlValuesMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("UnparsedSqlValues(%d)", x)
-}
+func (x UnparsedSqlValues) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x UnparsedSqlValues) IsValid() bool {
-	_, ok := _UnparsedSqlValuesMap[x]
-	return ok
-}
+func (x UnparsedSqlValues) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _UnparsedSqlValuesValue = map[string]UnparsedSqlValues{
 	_UnparsedSqlValuesName[0:1]: UnparsedSqlValuesA,
@@ -148,81 +113,27 @@ var _UnparsedSqlValuesValue = map[string]UnparsedSqlValues{
 
 // parseUnparsedSqlValues attempts to convert a string to a UnparsedSqlValues.
 func parseUnparsedSqlValues(name string) (UnparsedSqlValues, error) {
-	if x, ok := _UnparsedSqlValuesValue[name]; ok {
-		return x, nil
-	}
-	return UnparsedSqlValues(0), fmt.Errorf("%s is %w", name, ErrInvalidUnparsedSqlValues)
+	_ = "STUB: not implemented"
+	return *new(UnparsedSqlValues), nil
 }
 
 var errUnparsedSqlValuesNilPtr = errors.New("value pointer is nil") // one per type for package clashes
 
 // Scan implements the Scanner interface.
 func (x *UnparsedSqlValues) Scan(value interface{}) (err error) {
-	if value == nil {
-		*x = UnparsedSqlValues(0)
-		return
-	}
-
-	// A wider range of scannable types.
-	// driver.Value values at the top of the list for expediency
-	switch v := value.(type) {
-	case int64:
-		*x = UnparsedSqlValues(v)
-	case string:
-		*x, err = parseUnparsedSqlValues(v)
-	case []byte:
-		*x, err = parseUnparsedSqlValues(string(v))
-	case UnparsedSqlValues:
-		*x = v
-	case int:
-		*x = UnparsedSqlValues(v)
-	case *UnparsedSqlValues:
-		if v == nil {
-			return errUnparsedSqlValuesNilPtr
-		}
-		*x = *v
-	case uint:
-		*x = UnparsedSqlValues(v)
-	case uint64:
-		*x = UnparsedSqlValues(v)
-	case *int:
-		if v == nil {
-			return errUnparsedSqlValuesNilPtr
-		}
-		*x = UnparsedSqlValues(*v)
-	case *int64:
-		if v == nil {
-			return errUnparsedSqlValuesNilPtr
-		}
-		*x = UnparsedSqlValues(*v)
-	case float64: // json marshals everything as a float64 if it's a number
-		*x = UnparsedSqlValues(v)
-	case *float64: // json marshals everything as a float64 if it's a number
-		if v == nil {
-			return errUnparsedSqlValuesNilPtr
-		}
-		*x = UnparsedSqlValues(*v)
-	case *uint:
-		if v == nil {
-			return errUnparsedSqlValuesNilPtr
-		}
-		*x = UnparsedSqlValues(*v)
-	case *uint64:
-		if v == nil {
-			return errUnparsedSqlValuesNilPtr
-		}
-		*x = UnparsedSqlValues(*v)
-	case *string:
-		if v == nil {
-			return errUnparsedSqlValuesNilPtr
-		}
-		*x, err = parseUnparsedSqlValues(*v)
-	}
-
-	return
+	_ = "STUB: not implemented"
+	return nil
 }
+
+// A wider range of scannable types.
+// driver.Value values at the top of the list for expediency
+
+// json marshals everything as a float64 if it's a number
+
+// json marshals everything as a float64 if it's a number
 
 // Value implements the driver Valuer interface.
 func (x UnparsedSqlValues) Value() (driver.Value, error) {
-	return x.String(), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }

@@ -9,10 +9,6 @@
 
 package example
 
-import (
-	"fmt"
-)
-
 const (
 	// UnparsedStringA is a UnparsedString of type A.
 	UnparsedStringA UnparsedString = "A"
@@ -28,15 +24,14 @@ const (
 
 // String implements the Stringer interface.
 func (x UnparsedString) String() string {
-	return string(x)
+	_ = "STUB: not implemented"
+
+	// IsValid provides a quick way to determine if the typed value is
+	// part of the allowed enumerated values
+	return ""
 }
 
-// IsValid provides a quick way to determine if the typed value is
-// part of the allowed enumerated values
-func (x UnparsedString) IsValid() bool {
-	_, ok := _UnparsedStringValue[string(x)]
-	return ok
-}
+func (x UnparsedString) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _UnparsedStringValue = map[string]UnparsedString{
 	"A": UnparsedStringA,
@@ -70,19 +65,11 @@ var _UnparsedValuesMap = map[UnparsedValues]string{
 }
 
 // String implements the Stringer interface.
-func (x UnparsedValues) String() string {
-	if str, ok := _UnparsedValuesMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("UnparsedValues(%d)", x)
-}
+func (x UnparsedValues) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x UnparsedValues) IsValid() bool {
-	_, ok := _UnparsedValuesMap[x]
-	return ok
-}
+func (x UnparsedValues) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _UnparsedValuesValue = map[string]UnparsedValues{
 	_UnparsedValuesName[0:1]: UnparsedValuesA,

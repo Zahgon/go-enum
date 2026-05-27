@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -31,19 +30,11 @@ var _ForceLowerTypeMap = map[ForceLowerType]string{
 }
 
 // String implements the Stringer interface.
-func (x ForceLowerType) String() string {
-	if str, ok := _ForceLowerTypeMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("ForceLowerType(%d)", x)
-}
+func (x ForceLowerType) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x ForceLowerType) IsValid() bool {
-	_, ok := _ForceLowerTypeMap[x]
-	return ok
-}
+func (x ForceLowerType) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _ForceLowerTypeValue = map[string]ForceLowerType{
 	_ForceLowerTypeName[0:8]:  ForceLowerTypeDataSwap,
@@ -52,8 +43,6 @@ var _ForceLowerTypeValue = map[string]ForceLowerType{
 
 // ParseForceLowerType attempts to convert a string to a ForceLowerType.
 func ParseForceLowerType(name string) (ForceLowerType, error) {
-	if x, ok := _ForceLowerTypeValue[name]; ok {
-		return x, nil
-	}
-	return ForceLowerType(0), fmt.Errorf("%s is %w", name, ErrInvalidForceLowerType)
+	_ = "STUB: not implemented"
+	return *new(ForceLowerType), nil
 }

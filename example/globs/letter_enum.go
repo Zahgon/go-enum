@@ -11,7 +11,6 @@ package globs
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -103,19 +102,11 @@ var _LetterMap = map[Letter]string{
 }
 
 // String implements the Stringer interface.
-func (x Letter) String() string {
-	if str, ok := _LetterMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Letter(%d)", x)
-}
+func (x Letter) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Letter) IsValid() bool {
-	_, ok := _LetterMap[x]
-	return ok
-}
+func (x Letter) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _LetterValue = map[string]Letter{
 	_LetterName[0:1]:   LetterA,
@@ -147,9 +138,4 @@ var _LetterValue = map[string]Letter{
 }
 
 // ParseLetter attempts to convert a string to a Letter.
-func ParseLetter(name string) (Letter, error) {
-	if x, ok := _LetterValue[name]; ok {
-		return x, nil
-	}
-	return Letter(0), fmt.Errorf("%s is %w", name, ErrInvalidLetter)
-}
+func ParseLetter(name string) (Letter, error) { _ = "STUB: not implemented"; return *new(Letter), nil }

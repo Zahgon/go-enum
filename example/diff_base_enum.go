@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -52,19 +51,11 @@ var _DiffBaseMap = map[DiffBase]string{
 }
 
 // String implements the Stringer interface.
-func (x DiffBase) String() string {
-	if str, ok := _DiffBaseMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("DiffBase(%d)", x)
-}
+func (x DiffBase) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x DiffBase) IsValid() bool {
-	_, ok := _DiffBaseMap[x]
-	return ok
-}
+func (x DiffBase) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _DiffBaseValue = map[string]DiffBase{
 	_DiffBaseName[0:2]:   DiffBaseB3,
@@ -80,8 +71,6 @@ var _DiffBaseValue = map[string]DiffBase{
 
 // ParseDiffBase attempts to convert a string to a DiffBase.
 func ParseDiffBase(name string) (DiffBase, error) {
-	if x, ok := _DiffBaseValue[name]; ok {
-		return x, nil
-	}
-	return DiffBase(0), fmt.Errorf("%s is %w", name, ErrInvalidDiffBase)
+	_ = "STUB: not implemented"
+	return *new(DiffBase), nil
 }

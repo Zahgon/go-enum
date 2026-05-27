@@ -78,28 +78,10 @@ var _MakeNames = []string{
 }
 
 // MakeNames returns a list of possible string values of Make.
-func MakeNames() []string {
-	tmp := make([]string, len(_MakeNames))
-	copy(tmp, _MakeNames)
-	return tmp
-}
+func MakeNames() []string { _ = "STUB: not implemented"; return nil }
 
 // MakeValues returns a list of the values for Make
-func MakeValues() []Make {
-	return []Make{
-		MakeToyota,
-		MakeChevy,
-		MakeFord,
-		MakeTesla,
-		MakeHyundai,
-		MakeNissan,
-		MakeJaguar,
-		MakeAudi,
-		MakeBMW,
-		MakeMercedesBenz,
-		MakeVolkswagon,
-	}
-}
+func MakeValues() []Make { _ = "STUB: not implemented"; return nil }
 
 var _MakeMap = map[Make]string{
 	MakeToyota:       _MakeName[0:6],
@@ -116,19 +98,11 @@ var _MakeMap = map[Make]string{
 }
 
 // String implements the Stringer interface.
-func (x Make) String() string {
-	if str, ok := _MakeMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Make(%d)", x)
-}
+func (x Make) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Make) IsValid() bool {
-	_, ok := _MakeMap[x]
-	return ok
-}
+func (x Make) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _MakeValue = map[string]Make{
 	_MakeName[0:6]:                    MakeToyota,
@@ -156,57 +130,34 @@ var _MakeValue = map[string]Make{
 }
 
 // ParseMake attempts to convert a string to a Make.
-func ParseMake(name string) (Make, error) {
-	if x, ok := _MakeValue[name]; ok {
-		return x, nil
-	}
-	// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.
-	if x, ok := _MakeValue[strings.ToLower(name)]; ok {
-		return x, nil
-	}
-	return Make(0), fmt.Errorf("%s is %w", name, ErrInvalidMake)
-}
+func ParseMake(name string) (Make, error) { _ = "STUB: not implemented"; return *new(Make), nil }
+
+// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.
 
 // MarshalText implements the text marshaller method.
-func (x Make) MarshalText() ([]byte, error) {
-	return []byte(x.String()), nil
-}
+func (x Make) MarshalText() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalText implements the text unmarshaller method.
-func (x *Make) UnmarshalText(text []byte) error {
-	name := string(text)
-	tmp, err := ParseMake(name)
-	if err != nil {
-		return err
-	}
-	*x = tmp
-	return nil
-}
+func (x *Make) UnmarshalText(text []byte) error { _ = "STUB: not implemented"; return nil }
 
 // AppendText appends the textual representation of itself to the end of b
 // (allocating a larger slice if necessary) and returns the updated slice.
 //
 // Implementations must not retain b, nor mutate any bytes within b[:len(b)].
-func (x *Make) AppendText(b []byte) ([]byte, error) {
-	return append(b, x.String()...), nil
-}
+func (x *Make) AppendText(b []byte) ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // Set implements the Golang flag.Value interface func.
-func (x *Make) Set(val string) error {
-	v, err := ParseMake(val)
-	*x = v
-	return err
-}
+func (x *Make) Set(val string) error { _ = "STUB: not implemented"; return nil }
 
 // Get implements the Golang flag.Getter interface func.
 func (x *Make) Get() interface{} {
-	return *x
+	_ = "STUB: not implemented"
+
+	// Type implements the github.com/spf13/pFlag Value interface.
+	return nil
 }
 
-// Type implements the github.com/spf13/pFlag Value interface.
-func (x *Make) Type() string {
-	return "Make"
-}
+func (x *Make) Type() string { _ = "STUB: not implemented"; return "" }
 
 const (
 	// NoZerosStart is a NoZeros of type Start.
@@ -237,23 +188,10 @@ var _NoZerosNames = []string{
 }
 
 // NoZerosNames returns a list of possible string values of NoZeros.
-func NoZerosNames() []string {
-	tmp := make([]string, len(_NoZerosNames))
-	copy(tmp, _NoZerosNames)
-	return tmp
-}
+func NoZerosNames() []string { _ = "STUB: not implemented"; return nil }
 
 // NoZerosValues returns a list of the values for NoZeros
-func NoZerosValues() []NoZeros {
-	return []NoZeros{
-		NoZerosStart,
-		NoZerosMiddle,
-		NoZerosEnd,
-		NoZerosPs,
-		NoZerosPps,
-		NoZerosPpps,
-	}
-}
+func NoZerosValues() []NoZeros { _ = "STUB: not implemented"; return nil }
 
 var _NoZerosMap = map[NoZeros]string{
 	NoZerosStart:  _NoZerosName[0:5],
@@ -265,19 +203,11 @@ var _NoZerosMap = map[NoZeros]string{
 }
 
 // String implements the Stringer interface.
-func (x NoZeros) String() string {
-	if str, ok := _NoZerosMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("NoZeros(%d)", x)
-}
+func (x NoZeros) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x NoZeros) IsValid() bool {
-	_, ok := _NoZerosMap[x]
-	return ok
-}
+func (x NoZeros) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _NoZerosValue = map[string]NoZeros{
 	_NoZerosName[0:5]:                    NoZerosStart,
@@ -296,53 +226,33 @@ var _NoZerosValue = map[string]NoZeros{
 
 // ParseNoZeros attempts to convert a string to a NoZeros.
 func ParseNoZeros(name string) (NoZeros, error) {
-	if x, ok := _NoZerosValue[name]; ok {
-		return x, nil
-	}
-	// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.
-	if x, ok := _NoZerosValue[strings.ToLower(name)]; ok {
-		return x, nil
-	}
-	return NoZeros(0), fmt.Errorf("%s is %w", name, ErrInvalidNoZeros)
+	_ = "STUB: not implemented"
+	return *new(NoZeros), nil
 }
+
+// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.
 
 // MarshalText implements the text marshaller method.
-func (x NoZeros) MarshalText() ([]byte, error) {
-	return []byte(x.String()), nil
-}
+func (x NoZeros) MarshalText() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalText implements the text unmarshaller method.
-func (x *NoZeros) UnmarshalText(text []byte) error {
-	name := string(text)
-	tmp, err := ParseNoZeros(name)
-	if err != nil {
-		return err
-	}
-	*x = tmp
-	return nil
-}
+func (x *NoZeros) UnmarshalText(text []byte) error { _ = "STUB: not implemented"; return nil }
 
 // AppendText appends the textual representation of itself to the end of b
 // (allocating a larger slice if necessary) and returns the updated slice.
 //
 // Implementations must not retain b, nor mutate any bytes within b[:len(b)].
-func (x *NoZeros) AppendText(b []byte) ([]byte, error) {
-	return append(b, x.String()...), nil
-}
+func (x *NoZeros) AppendText(b []byte) ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // Set implements the Golang flag.Value interface func.
-func (x *NoZeros) Set(val string) error {
-	v, err := ParseNoZeros(val)
-	*x = v
-	return err
-}
+func (x *NoZeros) Set(val string) error { _ = "STUB: not implemented"; return nil }
 
 // Get implements the Golang flag.Getter interface func.
 func (x *NoZeros) Get() interface{} {
-	return *x
+	_ = "STUB: not implemented"
+
+	// Type implements the github.com/spf13/pFlag Value interface.
+	return nil
 }
 
-// Type implements the github.com/spf13/pFlag Value interface.
-func (x *NoZeros) Type() string {
-	return "NoZeros"
-}
+func (x *NoZeros) Type() string { _ = "STUB: not implemented"; return "" }

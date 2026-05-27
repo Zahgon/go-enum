@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -40,19 +39,11 @@ var _AnimalMap = map[Animal]string{
 }
 
 // String implements the Stringer interface.
-func (x Animal) String() string {
-	if str, ok := _AnimalMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Animal(%d)", x)
-}
+func (x Animal) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Animal) IsValid() bool {
-	_, ok := _AnimalMap[x]
-	return ok
-}
+func (x Animal) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _AnimalValue = map[string]Animal{
 	_AnimalName[0:3]:   AnimalCat,
@@ -63,9 +54,4 @@ var _AnimalValue = map[string]Animal{
 }
 
 // ParseAnimal attempts to convert a string to a Animal.
-func ParseAnimal(name string) (Animal, error) {
-	if x, ok := _AnimalValue[name]; ok {
-		return x, nil
-	}
-	return Animal(0), fmt.Errorf("%s is %w", name, ErrInvalidAnimal)
-}
+func ParseAnimal(name string) (Animal, error) { _ = "STUB: not implemented"; return *new(Animal), nil }

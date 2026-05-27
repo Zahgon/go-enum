@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -34,19 +33,11 @@ var _OceanColorMap = map[OceanColor]string{
 }
 
 // String implements the Stringer interface.
-func (x OceanColor) String() string {
-	if str, ok := _OceanColorMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("OceanColor(%d)", x)
-}
+func (x OceanColor) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x OceanColor) IsValid() bool {
-	_, ok := _OceanColorMap[x]
-	return ok
-}
+func (x OceanColor) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _OceanColorValue = map[string]OceanColor{
 	_OceanColorName[0:8]:   OceanColorCerulean,
@@ -56,23 +47,19 @@ var _OceanColorValue = map[string]OceanColor{
 
 // ParseOceanColor attempts to convert a string to a OceanColor.
 func ParseOceanColor(name string) (OceanColor, error) {
-	if x, ok := _OceanColorValue[name]; ok {
-		return x, nil
-	}
-	return OceanColor(0), fmt.Errorf("%s is %w", name, ErrInvalidOceanColor)
+	_ = "STUB: not implemented"
+	return *new(OceanColor), nil
 }
 
-func ParseOceanColorGlobbedExample() bool {
-	return true
-}
+func ParseOceanColorGlobbedExample() bool { _ = "STUB: not implemented"; return false }
+
 func ParseOceanColorGlobbedExample2() bool {
-	return true
+	_ = "STUB: not implemented"
+
+	// Additional template
+	return false
 }
 
-// Additional template
-func ParseOceanColorExample() bool {
-	return true
-}
-func ParseOceanColorDescription() string {
-	return `OceanColor is an enumeration of ocean colors that are allowed.`
-}
+func ParseOceanColorExample() bool { _ = "STUB: not implemented"; return false }
+
+func ParseOceanColorDescription() string { _ = "STUB: not implemented"; return "" }

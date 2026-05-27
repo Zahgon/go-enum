@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 )
 
 const (
@@ -23,24 +22,18 @@ var ErrInvalidSuffix = errors.New("not a valid Suffix")
 
 // String implements the Stringer interface.
 func (x Suffix) String() string {
-	return string(x)
+	_ = "STUB: not implemented"
+
+	// IsValid provides a quick way to determine if the typed value is
+	// part of the allowed enumerated values
+	return ""
 }
 
-// IsValid provides a quick way to determine if the typed value is
-// part of the allowed enumerated values
-func (x Suffix) IsValid() bool {
-	_, err := ParseSuffix(string(x))
-	return err == nil
-}
+func (x Suffix) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _SuffixValue = map[string]Suffix{
 	"gen": SuffixGen,
 }
 
 // ParseSuffix attempts to convert a string to a Suffix.
-func ParseSuffix(name string) (Suffix, error) {
-	if x, ok := _SuffixValue[name]; ok {
-		return x, nil
-	}
-	return Suffix(""), fmt.Errorf("%s is %w", name, ErrInvalidSuffix)
-}
+func ParseSuffix(name string) (Suffix, error) { _ = "STUB: not implemented"; return *new(Suffix), nil }

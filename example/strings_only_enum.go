@@ -11,7 +11,6 @@ package example
 
 import (
 	"database/sql/driver"
-	json "encoding/json"
 	"errors"
 	"fmt"
 	"strings"
@@ -34,33 +33,21 @@ var _StrStateNames = []string{
 }
 
 // StrStateNames returns a list of possible string values of StrState.
-func StrStateNames() []string {
-	tmp := make([]string, len(_StrStateNames))
-	copy(tmp, _StrStateNames)
-	return tmp
-}
+func StrStateNames() []string { _ = "STUB: not implemented"; return nil }
 
 // StrStateValues returns a list of the values for StrState
-func StrStateValues() []StrState {
-	return []StrState{
-		StrStatePending,
-		StrStateRunning,
-		StrStateCompleted,
-		StrStateFailed,
-	}
-}
+func StrStateValues() []StrState { _ = "STUB: not implemented"; return nil }
 
 // String implements the Stringer interface.
 func (x StrState) String() string {
-	return string(x)
+	_ = "STUB: not implemented"
+
+	// IsValid provides a quick way to determine if the typed value is
+	// part of the allowed enumerated values
+	return ""
 }
 
-// IsValid provides a quick way to determine if the typed value is
-// part of the allowed enumerated values
-func (x StrState) IsValid() bool {
-	_, err := ParseStrState(string(x))
-	return err == nil
-}
+func (x StrState) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _StrStateValue = map[string]StrState{
 	"pending":   StrStatePending,
@@ -71,108 +58,61 @@ var _StrStateValue = map[string]StrState{
 
 // ParseStrState attempts to convert a string to a StrState.
 func ParseStrState(name string) (StrState, error) {
-	if x, ok := _StrStateValue[name]; ok {
-		return x, nil
-	}
-	// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.
-	if x, ok := _StrStateValue[strings.ToLower(name)]; ok {
-		return x, nil
-	}
-	return StrState(""), fmt.Errorf("%s is %w", name, ErrInvalidStrState)
+	_ = "STUB: not implemented"
+	return *new(StrState), nil
 }
+
+// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.
 
 // MustParseStrState converts a string to a StrState, and panics if is not valid.
-func MustParseStrState(name string) StrState {
-	val, err := ParseStrState(name)
-	if err != nil {
-		panic(err)
-	}
-	return val
-}
+func MustParseStrState(name string) StrState { _ = "STUB: not implemented"; return *new(StrState) }
 
 func (x StrState) Ptr() *StrState {
-	return &x
-}
+	_ = "STUB: not implemented"
 
-// MarshalText implements the text marshaller method.
-func (x StrState) MarshalText() ([]byte, error) {
-	return []byte(string(x)), nil
-}
-
-// UnmarshalText implements the text unmarshaller method.
-func (x *StrState) UnmarshalText(text []byte) error {
-	tmp, err := ParseStrState(string(text))
-	if err != nil {
-		return err
-	}
-	*x = tmp
+	// MarshalText implements the text marshaller method.
 	return nil
 }
+
+func (x StrState) MarshalText() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
+
+// UnmarshalText implements the text unmarshaller method.
+func (x *StrState) UnmarshalText(text []byte) error { _ = "STUB: not implemented"; return nil }
 
 // AppendText appends the textual representation of itself to the end of b
 // (allocating a larger slice if necessary) and returns the updated slice.
 //
 // Implementations must not retain b, nor mutate any bytes within b[:len(b)].
-func (x *StrState) AppendText(b []byte) ([]byte, error) {
-	return append(b, x.String()...), nil
-}
+func (x *StrState) AppendText(b []byte) ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 var errStrStateNilPtr = errors.New("value pointer is nil") // one per type for package clashes
 
 // Scan implements the Scanner interface.
-func (x *StrState) Scan(value interface{}) (err error) {
-	if value == nil {
-		*x = StrState("")
-		return
-	}
+func (x *StrState) Scan(value interface{}) (err error) { _ = "STUB: not implemented"; return nil }
 
-	// A wider range of scannable types.
-	// driver.Value values at the top of the list for expediency
-	switch v := value.(type) {
-	case string:
-		*x, err = ParseStrState(v)
-	case []byte:
-		*x, err = ParseStrState(string(v))
-	case StrState:
-		*x = v
-	case *StrState:
-		if v == nil {
-			return errStrStateNilPtr
-		}
-		*x = *v
-	case *string:
-		if v == nil {
-			return errStrStateNilPtr
-		}
-		*x, err = ParseStrState(*v)
-	default:
-		return errors.New("invalid type for StrState")
-	}
-
-	return
-}
+// A wider range of scannable types.
+// driver.Value values at the top of the list for expediency
 
 // Value implements the driver Valuer interface.
 func (x StrState) Value() (driver.Value, error) {
-	return x.String(), nil
+	_ = "STUB: not implemented"
+	return *
+
+	// Set implements the Golang flag.Value interface func.
+	new(driver.Value), nil
 }
 
-// Set implements the Golang flag.Value interface func.
-func (x *StrState) Set(val string) error {
-	v, err := ParseStrState(val)
-	*x = v
-	return err
-}
+func (x *StrState) Set(val string) error { _ = "STUB: not implemented"; return nil }
 
 // Get implements the Golang flag.Getter interface func.
 func (x *StrState) Get() interface{} {
-	return *x
+	_ = "STUB: not implemented"
+
+	// Type implements the github.com/spf13/pFlag Value interface.
+	return nil
 }
 
-// Type implements the github.com/spf13/pFlag Value interface.
-func (x *StrState) Type() string {
-	return "StrState"
-}
+func (x *StrState) Type() string { _ = "STUB: not implemented"; return "" }
 
 type NullStrState struct {
 	StrState StrState
@@ -181,48 +121,24 @@ type NullStrState struct {
 }
 
 func NewNullStrState(val interface{}) (x NullStrState) {
-	err := x.Scan(val) // yes, we ignore this error, it will just be an invalid value.
-	_ = err            // make any errcheck linters happy
-	return
+	_ = "STUB: not implemented"
+	// yes, we ignore this error, it will just be an invalid value.
+	return *new(NullStrState)
 }
+
+// make any errcheck linters happy
 
 // Scan implements the Scanner interface.
-func (x *NullStrState) Scan(value interface{}) (err error) {
-	if value == nil {
-		x.StrState, x.Valid = StrState(""), false
-		return
-	}
-
-	err = x.StrState.Scan(value)
-	x.Valid = (err == nil)
-	return
-}
+func (x *NullStrState) Scan(value interface{}) (err error) { _ = "STUB: not implemented"; return nil }
 
 // Value implements the driver Valuer interface.
 func (x NullStrState) Value() (driver.Value, error) {
-	if !x.Valid {
-		return nil, nil
-	}
-	return x.StrState.String(), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }
 
 // MarshalJSON correctly serializes a NullStrState to JSON.
-func (n NullStrState) MarshalJSON() ([]byte, error) {
-	const nullStr = "null"
-	if n.Valid {
-		return json.Marshal(n.StrState)
-	}
-	return []byte(nullStr), nil
-}
+func (n NullStrState) MarshalJSON() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalJSON correctly deserializes a NullStrState from JSON.
-func (n *NullStrState) UnmarshalJSON(b []byte) error {
-	n.Set = true
-	var x interface{}
-	err := json.Unmarshal(b, &x)
-	if err != nil {
-		return err
-	}
-	err = n.Scan(x)
-	return err
-}
+func (n *NullStrState) UnmarshalJSON(b []byte) error { _ = "STUB: not implemented"; return nil }

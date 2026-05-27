@@ -12,8 +12,6 @@ package example
 import (
 	"database/sql/driver"
 	"errors"
-	"fmt"
-	"strconv"
 )
 
 const (
@@ -42,19 +40,11 @@ var _ImageTypeMap = map[ImageType]string{
 }
 
 // String implements the Stringer interface.
-func (x ImageType) String() string {
-	if str, ok := _ImageTypeMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("ImageType(%d)", x)
-}
+func (x ImageType) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x ImageType) IsValid() bool {
-	_, ok := _ImageTypeMap[x]
-	return ok
-}
+func (x ImageType) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _ImageTypeValue = map[string]ImageType{
 	_ImageTypeName[0:4]:   ImageTypeJpeg,
@@ -66,101 +56,32 @@ var _ImageTypeValue = map[string]ImageType{
 
 // ParseImageType attempts to convert a string to a ImageType.
 func ParseImageType(name string) (ImageType, error) {
-	if x, ok := _ImageTypeValue[name]; ok {
-		return x, nil
-	}
-	return ImageType(0), fmt.Errorf("%s is %w", name, ErrInvalidImageType)
+	_ = "STUB: not implemented"
+	return *new(ImageType), nil
 }
 
 var errImageTypeNilPtr = errors.New("value pointer is nil") // one per type for package clashes
 
 // Scan implements the Scanner interface.
-func (x *ImageType) Scan(value interface{}) (err error) {
-	if value == nil {
-		*x = ImageType(0)
-		return
-	}
+func (x *ImageType) Scan(value interface{}) (err error) { _ = "STUB: not implemented"; return nil }
 
-	// A wider range of scannable types.
-	// driver.Value values at the top of the list for expediency
-	switch v := value.(type) {
-	case int64:
-		*x = ImageType(v)
-	case string:
-		*x, err = ParseImageType(v)
-		if err != nil {
-			// try parsing the integer value as a string
-			if val, verr := strconv.Atoi(v); verr == nil {
-				*x, err = ImageType(val), nil
-			}
-		}
-	case []byte:
-		*x, err = ParseImageType(string(v))
-		if err != nil {
-			// try parsing the integer value as a string
-			if val, verr := strconv.Atoi(string(v)); verr == nil {
-				*x, err = ImageType(val), nil
-			}
-		}
-	case ImageType:
-		*x = v
-	case int:
-		*x = ImageType(v)
-	case *ImageType:
-		if v == nil {
-			return errImageTypeNilPtr
-		}
-		*x = *v
-	case uint:
-		*x = ImageType(v)
-	case uint64:
-		*x = ImageType(v)
-	case *int:
-		if v == nil {
-			return errImageTypeNilPtr
-		}
-		*x = ImageType(*v)
-	case *int64:
-		if v == nil {
-			return errImageTypeNilPtr
-		}
-		*x = ImageType(*v)
-	case float64: // json marshals everything as a float64 if it's a number
-		*x = ImageType(v)
-	case *float64: // json marshals everything as a float64 if it's a number
-		if v == nil {
-			return errImageTypeNilPtr
-		}
-		*x = ImageType(*v)
-	case *uint:
-		if v == nil {
-			return errImageTypeNilPtr
-		}
-		*x = ImageType(*v)
-	case *uint64:
-		if v == nil {
-			return errImageTypeNilPtr
-		}
-		*x = ImageType(*v)
-	case *string:
-		if v == nil {
-			return errImageTypeNilPtr
-		}
-		*x, err = ParseImageType(*v)
-		if err != nil {
-			// try parsing the integer value as a string
-			if val, verr := strconv.Atoi(*v); verr == nil {
-				*x, err = ImageType(val), nil
-			}
-		}
-	}
+// A wider range of scannable types.
+// driver.Value values at the top of the list for expediency
 
-	return
-}
+// try parsing the integer value as a string
+
+// try parsing the integer value as a string
+
+// json marshals everything as a float64 if it's a number
+
+// json marshals everything as a float64 if it's a number
+
+// try parsing the integer value as a string
 
 // Value implements the driver Valuer interface.
 func (x ImageType) Value() (driver.Value, error) {
-	return int64(x), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }
 
 type NullImageType struct {
@@ -169,27 +90,18 @@ type NullImageType struct {
 }
 
 func NewNullImageType(val interface{}) (x NullImageType) {
-	x.Scan(val) // yes, we ignore this error, it will just be an invalid value.
-	return
+	_ = "STUB: not implemented"
+	// yes, we ignore this error, it will just be an invalid value.
+	return *new(NullImageType)
 }
 
 // Scan implements the Scanner interface.
-func (x *NullImageType) Scan(value interface{}) (err error) {
-	if value == nil {
-		x.ImageType, x.Valid = ImageType(0), false
-		return
-	}
-
-	err = x.ImageType.Scan(value)
-	x.Valid = (err == nil)
-	return
-}
+func (x *NullImageType) Scan(value interface{}) (err error) { _ = "STUB: not implemented"; return nil }
 
 // Value implements the driver Valuer interface.
 func (x NullImageType) Value() (driver.Value, error) {
-	if !x.Valid {
-		return nil, nil
-	}
-	// driver.Value accepts int64 for int values.
-	return int64(x.ImageType), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }
+
+// driver.Value accepts int64 for int values.

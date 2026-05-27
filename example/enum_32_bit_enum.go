@@ -61,11 +61,7 @@ var _Enum32bitNames = []string{
 }
 
 // Enum32bitNames returns a list of possible string values of Enum32bit.
-func Enum32bitNames() []string {
-	tmp := make([]string, len(_Enum32bitNames))
-	copy(tmp, _Enum32bitNames)
-	return tmp
-}
+func Enum32bitNames() []string { _ = "STUB: not implemented"; return nil }
 
 var _Enum32bitMap = map[Enum32bit]string{
 	Enum32bitUnkno: _Enum32bitName[0:5],
@@ -83,19 +79,11 @@ var _Enum32bitMap = map[Enum32bit]string{
 }
 
 // String implements the Stringer interface.
-func (x Enum32bit) String() string {
-	if str, ok := _Enum32bitMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Enum32bit(%d)", x)
-}
+func (x Enum32bit) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Enum32bit) IsValid() bool {
-	_, ok := _Enum32bitMap[x]
-	return ok
-}
+func (x Enum32bit) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _Enum32bitValue = map[string]Enum32bit{
 	_Enum32bitName[0:5]:   Enum32bitUnkno,
@@ -114,8 +102,6 @@ var _Enum32bitValue = map[string]Enum32bit{
 
 // ParseEnum32bit attempts to convert a string to a Enum32bit.
 func ParseEnum32bit(name string) (Enum32bit, error) {
-	if x, ok := _Enum32bitValue[name]; ok {
-		return x, nil
-	}
-	return Enum32bit(0), fmt.Errorf("%s is %w", name, ErrInvalidEnum32bit)
+	_ = "STUB: not implemented"
+	return *new(Enum32bit), nil
 }

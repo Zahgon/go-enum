@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 	"strings"
 )
 
@@ -38,19 +37,11 @@ var _AllNegativeMap = map[AllNegative]string{
 }
 
 // String implements the Stringer interface.
-func (x AllNegative) String() string {
-	if str, ok := _AllNegativeMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("AllNegative(%d)", x)
-}
+func (x AllNegative) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x AllNegative) IsValid() bool {
-	_, ok := _AllNegativeMap[x]
-	return ok
-}
+func (x AllNegative) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _AllNegativeValue = map[string]AllNegative{
 	_AllNegativeName[0:7]:                    AllNegativeUnknown,
@@ -65,15 +56,11 @@ var _AllNegativeValue = map[string]AllNegative{
 
 // ParseAllNegative attempts to convert a string to a AllNegative.
 func ParseAllNegative(name string) (AllNegative, error) {
-	if x, ok := _AllNegativeValue[name]; ok {
-		return x, nil
-	}
-	// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.
-	if x, ok := _AllNegativeValue[strings.ToLower(name)]; ok {
-		return x, nil
-	}
-	return AllNegative(0), fmt.Errorf("%s is %w", name, ErrInvalidAllNegative)
+	_ = "STUB: not implemented"
+	return *new(AllNegative), nil
 }
+
+// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.
 
 const (
 	// StatusUnknown is a Status of type Unknown.
@@ -95,19 +82,11 @@ var _StatusMap = map[Status]string{
 }
 
 // String implements the Stringer interface.
-func (x Status) String() string {
-	if str, ok := _StatusMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Status(%d)", x)
-}
+func (x Status) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Status) IsValid() bool {
-	_, ok := _StatusMap[x]
-	return ok
-}
+func (x Status) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _StatusValue = map[string]Status{
 	_StatusName[0:7]:                    StatusUnknown,
@@ -119,13 +98,6 @@ var _StatusValue = map[string]Status{
 }
 
 // ParseStatus attempts to convert a string to a Status.
-func ParseStatus(name string) (Status, error) {
-	if x, ok := _StatusValue[name]; ok {
-		return x, nil
-	}
-	// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.
-	if x, ok := _StatusValue[strings.ToLower(name)]; ok {
-		return x, nil
-	}
-	return Status(0), fmt.Errorf("%s is %w", name, ErrInvalidStatus)
-}
+func ParseStatus(name string) (Status, error) { _ = "STUB: not implemented"; return *new(Status), nil }
+
+// Case insensitive parse, do a separate lookup to prevent unnecessary cost of lowercasing a string if we don't need to.

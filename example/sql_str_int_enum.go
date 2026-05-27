@@ -13,7 +13,6 @@ import (
 	"database/sql/driver"
 	"errors"
 	"fmt"
-	"strconv"
 	"strings"
 )
 
@@ -40,23 +39,18 @@ var _GreekGodNames = []string{
 }
 
 // GreekGodNames returns a list of possible string values of GreekGod.
-func GreekGodNames() []string {
-	tmp := make([]string, len(_GreekGodNames))
-	copy(tmp, _GreekGodNames)
-	return tmp
-}
+func GreekGodNames() []string { _ = "STUB: not implemented"; return nil }
 
 // String implements the Stringer interface.
 func (x GreekGod) String() string {
-	return string(x)
+	_ = "STUB: not implemented"
+
+	// IsValid provides a quick way to determine if the typed value is
+	// part of the allowed enumerated values
+	return ""
 }
 
-// IsValid provides a quick way to determine if the typed value is
-// part of the allowed enumerated values
-func (x GreekGod) IsValid() bool {
-	_, err := ParseGreekGod(string(x))
-	return err == nil
-}
+func (x GreekGod) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _GreekGodValue = map[string]GreekGod{
 	"zeus":   GreekGodZeus,
@@ -67,10 +61,8 @@ var _GreekGodValue = map[string]GreekGod{
 
 // ParseGreekGod attempts to convert a string to a GreekGod.
 func ParseGreekGod(name string) (GreekGod, error) {
-	if x, ok := _GreekGodValue[name]; ok {
-		return x, nil
-	}
-	return GreekGod(""), fmt.Errorf("%s is %w", name, ErrInvalidGreekGod)
+	_ = "STUB: not implemented"
+	return *new(GreekGod), nil
 }
 
 var errGreekGodNilPtr = errors.New("value pointer is nil") // one per type for package clashes
@@ -90,93 +82,26 @@ var sqlIntGreekGodValue = map[GreekGod]int64{
 }
 
 func lookupSqlIntGreekGod(val int64) (GreekGod, error) {
-	x, ok := sqlIntGreekGodMap[val]
-	if !ok {
-		return x, fmt.Errorf("%v is not %w", val, ErrInvalidGreekGod)
-	}
-	return x, nil
+	_ = "STUB: not implemented"
+	return *new(GreekGod), nil
 }
 
 // Scan implements the Scanner interface.
-func (x *GreekGod) Scan(value interface{}) (err error) {
-	if value == nil {
-		*x = GreekGod("")
-		return
-	}
+func (x *GreekGod) Scan(value interface{}) (err error) { _ = "STUB: not implemented"; return nil }
 
-	// A wider range of scannable types.
-	// driver.Value values at the top of the list for expediency
-	switch v := value.(type) {
-	case int64:
-		*x, err = lookupSqlIntGreekGod(v)
-	case string:
-		*x, err = ParseGreekGod(v)
-	case []byte:
-		if val, verr := strconv.ParseInt(string(v), 10, 64); verr == nil {
-			*x, err = lookupSqlIntGreekGod(val)
-		} else {
-			// try parsing the value as a string
-			*x, err = ParseGreekGod(string(v))
-		}
-	case GreekGod:
-		*x = v
-	case int:
-		*x, err = lookupSqlIntGreekGod(int64(v))
-	case *GreekGod:
-		if v == nil {
-			return errGreekGodNilPtr
-		}
-		*x = *v
-	case uint:
-		*x, err = lookupSqlIntGreekGod(int64(v))
-	case uint64:
-		*x, err = lookupSqlIntGreekGod(int64(v))
-	case *int:
-		if v == nil {
-			return errGreekGodNilPtr
-		}
-		*x, err = lookupSqlIntGreekGod(int64(*v))
-	case *int64:
-		if v == nil {
-			return errGreekGodNilPtr
-		}
-		*x, err = lookupSqlIntGreekGod(int64(*v))
-	case float64: // json marshals everything as a float64 if it's a number
-		*x, err = lookupSqlIntGreekGod(int64(v))
-	case *float64: // json marshals everything as a float64 if it's a number
-		if v == nil {
-			return errGreekGodNilPtr
-		}
-		*x, err = lookupSqlIntGreekGod(int64(*v))
-	case *uint:
-		if v == nil {
-			return errGreekGodNilPtr
-		}
-		*x, err = lookupSqlIntGreekGod(int64(*v))
-	case *uint64:
-		if v == nil {
-			return errGreekGodNilPtr
-		}
-		*x, err = lookupSqlIntGreekGod(int64(*v))
-	case *string:
-		if v == nil {
-			return errGreekGodNilPtr
-		}
-		*x, err = ParseGreekGod(*v)
-	default:
-		return errors.New("invalid type for GreekGod")
-	}
+// A wider range of scannable types.
+// driver.Value values at the top of the list for expediency
 
-	return
-}
+// try parsing the value as a string
+
+// json marshals everything as a float64 if it's a number
+
+// json marshals everything as a float64 if it's a number
 
 // Value implements the driver Valuer interface.
 func (x GreekGod) Value() (driver.Value, error) {
-	val, ok := sqlIntGreekGodValue[x]
-	if !ok {
-		return nil, ErrInvalidGreekGod
-	}
-	return int64(val), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }
 
 type NullGreekGod struct {
@@ -185,31 +110,23 @@ type NullGreekGod struct {
 }
 
 func NewNullGreekGod(val interface{}) (x NullGreekGod) {
-	err := x.Scan(val) // yes, we ignore this error, it will just be an invalid value.
-	_ = err            // make any errcheck linters happy
-	return
+	_ = "STUB: not implemented"
+	// yes, we ignore this error, it will just be an invalid value.
+	return *new(NullGreekGod)
 }
+
+// make any errcheck linters happy
 
 // Scan implements the Scanner interface.
-func (x *NullGreekGod) Scan(value interface{}) (err error) {
-	if value == nil {
-		x.GreekGod, x.Valid = GreekGod(""), false
-		return
-	}
-
-	err = x.GreekGod.Scan(value)
-	x.Valid = (err == nil)
-	return
-}
+func (x *NullGreekGod) Scan(value interface{}) (err error) { _ = "STUB: not implemented"; return nil }
 
 // Value implements the driver Valuer interface.
 func (x NullGreekGod) Value() (driver.Value, error) {
-	if !x.Valid {
-		return nil, nil
-	}
-	// driver.Value accepts int64 for int values.
-	return string(x.GreekGod), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }
+
+// driver.Value accepts int64 for int values.
 
 const (
 	// Skipped value.
@@ -236,23 +153,18 @@ var _GreekGodCustomNames = []string{
 }
 
 // GreekGodCustomNames returns a list of possible string values of GreekGodCustom.
-func GreekGodCustomNames() []string {
-	tmp := make([]string, len(_GreekGodCustomNames))
-	copy(tmp, _GreekGodCustomNames)
-	return tmp
-}
+func GreekGodCustomNames() []string { _ = "STUB: not implemented"; return nil }
 
 // String implements the Stringer interface.
 func (x GreekGodCustom) String() string {
-	return string(x)
+	_ = "STUB: not implemented"
+
+	// IsValid provides a quick way to determine if the typed value is
+	// part of the allowed enumerated values
+	return ""
 }
 
-// IsValid provides a quick way to determine if the typed value is
-// part of the allowed enumerated values
-func (x GreekGodCustom) IsValid() bool {
-	_, err := ParseGreekGodCustom(string(x))
-	return err == nil
-}
+func (x GreekGodCustom) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _GreekGodCustomValue = map[string]GreekGodCustom{
 	"zeus":   GreekGodCustomZeus,
@@ -263,10 +175,8 @@ var _GreekGodCustomValue = map[string]GreekGodCustom{
 
 // ParseGreekGodCustom attempts to convert a string to a GreekGodCustom.
 func ParseGreekGodCustom(name string) (GreekGodCustom, error) {
-	if x, ok := _GreekGodCustomValue[name]; ok {
-		return x, nil
-	}
-	return GreekGodCustom(""), fmt.Errorf("%s is %w", name, ErrInvalidGreekGodCustom)
+	_ = "STUB: not implemented"
+	return *new(GreekGodCustom), nil
 }
 
 var errGreekGodCustomNilPtr = errors.New("value pointer is nil") // one per type for package clashes
@@ -286,93 +196,26 @@ var sqlIntGreekGodCustomValue = map[GreekGodCustom]int64{
 }
 
 func lookupSqlIntGreekGodCustom(val int64) (GreekGodCustom, error) {
-	x, ok := sqlIntGreekGodCustomMap[val]
-	if !ok {
-		return x, fmt.Errorf("%v is not %w", val, ErrInvalidGreekGodCustom)
-	}
-	return x, nil
+	_ = "STUB: not implemented"
+	return *new(GreekGodCustom), nil
 }
 
 // Scan implements the Scanner interface.
-func (x *GreekGodCustom) Scan(value interface{}) (err error) {
-	if value == nil {
-		*x = GreekGodCustom("")
-		return
-	}
+func (x *GreekGodCustom) Scan(value interface{}) (err error) { _ = "STUB: not implemented"; return nil }
 
-	// A wider range of scannable types.
-	// driver.Value values at the top of the list for expediency
-	switch v := value.(type) {
-	case int64:
-		*x, err = lookupSqlIntGreekGodCustom(v)
-	case string:
-		*x, err = ParseGreekGodCustom(v)
-	case []byte:
-		if val, verr := strconv.ParseInt(string(v), 10, 64); verr == nil {
-			*x, err = lookupSqlIntGreekGodCustom(val)
-		} else {
-			// try parsing the value as a string
-			*x, err = ParseGreekGodCustom(string(v))
-		}
-	case GreekGodCustom:
-		*x = v
-	case int:
-		*x, err = lookupSqlIntGreekGodCustom(int64(v))
-	case *GreekGodCustom:
-		if v == nil {
-			return errGreekGodCustomNilPtr
-		}
-		*x = *v
-	case uint:
-		*x, err = lookupSqlIntGreekGodCustom(int64(v))
-	case uint64:
-		*x, err = lookupSqlIntGreekGodCustom(int64(v))
-	case *int:
-		if v == nil {
-			return errGreekGodCustomNilPtr
-		}
-		*x, err = lookupSqlIntGreekGodCustom(int64(*v))
-	case *int64:
-		if v == nil {
-			return errGreekGodCustomNilPtr
-		}
-		*x, err = lookupSqlIntGreekGodCustom(int64(*v))
-	case float64: // json marshals everything as a float64 if it's a number
-		*x, err = lookupSqlIntGreekGodCustom(int64(v))
-	case *float64: // json marshals everything as a float64 if it's a number
-		if v == nil {
-			return errGreekGodCustomNilPtr
-		}
-		*x, err = lookupSqlIntGreekGodCustom(int64(*v))
-	case *uint:
-		if v == nil {
-			return errGreekGodCustomNilPtr
-		}
-		*x, err = lookupSqlIntGreekGodCustom(int64(*v))
-	case *uint64:
-		if v == nil {
-			return errGreekGodCustomNilPtr
-		}
-		*x, err = lookupSqlIntGreekGodCustom(int64(*v))
-	case *string:
-		if v == nil {
-			return errGreekGodCustomNilPtr
-		}
-		*x, err = ParseGreekGodCustom(*v)
-	default:
-		return errors.New("invalid type for GreekGodCustom")
-	}
+// A wider range of scannable types.
+// driver.Value values at the top of the list for expediency
 
-	return
-}
+// try parsing the value as a string
+
+// json marshals everything as a float64 if it's a number
+
+// json marshals everything as a float64 if it's a number
 
 // Value implements the driver Valuer interface.
 func (x GreekGodCustom) Value() (driver.Value, error) {
-	val, ok := sqlIntGreekGodCustomValue[x]
-	if !ok {
-		return nil, ErrInvalidGreekGodCustom
-	}
-	return int64(val), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }
 
 type NullGreekGodCustom struct {
@@ -381,28 +224,23 @@ type NullGreekGodCustom struct {
 }
 
 func NewNullGreekGodCustom(val interface{}) (x NullGreekGodCustom) {
-	err := x.Scan(val) // yes, we ignore this error, it will just be an invalid value.
-	_ = err            // make any errcheck linters happy
-	return
+	_ = "STUB: not implemented"
+	// yes, we ignore this error, it will just be an invalid value.
+	return *new(NullGreekGodCustom)
 }
+
+// make any errcheck linters happy
 
 // Scan implements the Scanner interface.
 func (x *NullGreekGodCustom) Scan(value interface{}) (err error) {
-	if value == nil {
-		x.GreekGodCustom, x.Valid = GreekGodCustom(""), false
-		return
-	}
-
-	err = x.GreekGodCustom.Scan(value)
-	x.Valid = (err == nil)
-	return
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // Value implements the driver Valuer interface.
 func (x NullGreekGodCustom) Value() (driver.Value, error) {
-	if !x.Valid {
-		return nil, nil
-	}
-	// driver.Value accepts int64 for int values.
-	return string(x.GreekGodCustom), nil
+	_ = "STUB: not implemented"
+	return *new(driver.Value), nil
 }
+
+// driver.Value accepts int64 for int values.

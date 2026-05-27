@@ -11,7 +11,6 @@ package example
 
 import (
 	"errors"
-	"fmt"
 	"strings"
 )
 
@@ -37,19 +36,11 @@ var _CommentedMap = map[Commented]string{
 }
 
 // String implements the Stringer interface.
-func (x Commented) String() string {
-	if str, ok := _CommentedMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("Commented(%d)", x)
-}
+func (x Commented) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x Commented) IsValid() bool {
-	_, ok := _CommentedMap[x]
-	return ok
-}
+func (x Commented) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _CommentedValue = map[string]Commented{
 	_CommentedName[0:6]:                    CommentedValue1,
@@ -62,34 +53,23 @@ var _CommentedValue = map[string]Commented{
 
 // ParseCommented attempts to convert a string to a Commented.
 func ParseCommented(name string) (Commented, error) {
-	if x, ok := _CommentedValue[name]; ok {
-		return x, nil
-	}
-	return Commented(0), fmt.Errorf("%s is %w", name, ErrInvalidCommented)
+	_ = "STUB: not implemented"
+	return *new(Commented), nil
 }
 
 // MarshalText implements the text marshaller method.
-func (x Commented) MarshalText() ([]byte, error) {
-	return []byte(x.String()), nil
-}
+func (x Commented) MarshalText() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalText implements the text unmarshaller method.
-func (x *Commented) UnmarshalText(text []byte) error {
-	name := string(text)
-	tmp, err := ParseCommented(name)
-	if err != nil {
-		return err
-	}
-	*x = tmp
-	return nil
-}
+func (x *Commented) UnmarshalText(text []byte) error { _ = "STUB: not implemented"; return nil }
 
 // AppendText appends the textual representation of itself to the end of b
 // (allocating a larger slice if necessary) and returns the updated slice.
 //
 // Implementations must not retain b, nor mutate any bytes within b[:len(b)].
 func (x *Commented) AppendText(b []byte) ([]byte, error) {
-	return append(b, x.String()...), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
 
 const (
@@ -117,19 +97,11 @@ var _ComplexCommentedMap = map[ComplexCommented]string{
 }
 
 // String implements the Stringer interface.
-func (x ComplexCommented) String() string {
-	if str, ok := _ComplexCommentedMap[x]; ok {
-		return str
-	}
-	return fmt.Sprintf("ComplexCommented(%d)", x)
-}
+func (x ComplexCommented) String() string { _ = "STUB: not implemented"; return "" }
 
 // IsValid provides a quick way to determine if the typed value is
 // part of the allowed enumerated values
-func (x ComplexCommented) IsValid() bool {
-	_, ok := _ComplexCommentedMap[x]
-	return ok
-}
+func (x ComplexCommented) IsValid() bool { _ = "STUB: not implemented"; return false }
 
 var _ComplexCommentedValue = map[string]ComplexCommented{
 	_ComplexCommentedName[0:6]:                    ComplexCommentedValue1,
@@ -142,32 +114,21 @@ var _ComplexCommentedValue = map[string]ComplexCommented{
 
 // ParseComplexCommented attempts to convert a string to a ComplexCommented.
 func ParseComplexCommented(name string) (ComplexCommented, error) {
-	if x, ok := _ComplexCommentedValue[name]; ok {
-		return x, nil
-	}
-	return ComplexCommented(0), fmt.Errorf("%s is %w", name, ErrInvalidComplexCommented)
+	_ = "STUB: not implemented"
+	return *new(ComplexCommented), nil
 }
 
 // MarshalText implements the text marshaller method.
-func (x ComplexCommented) MarshalText() ([]byte, error) {
-	return []byte(x.String()), nil
-}
+func (x ComplexCommented) MarshalText() ([]byte, error) { _ = "STUB: not implemented"; return nil, nil }
 
 // UnmarshalText implements the text unmarshaller method.
-func (x *ComplexCommented) UnmarshalText(text []byte) error {
-	name := string(text)
-	tmp, err := ParseComplexCommented(name)
-	if err != nil {
-		return err
-	}
-	*x = tmp
-	return nil
-}
+func (x *ComplexCommented) UnmarshalText(text []byte) error { _ = "STUB: not implemented"; return nil }
 
 // AppendText appends the textual representation of itself to the end of b
 // (allocating a larger slice if necessary) and returns the updated slice.
 //
 // Implementations must not retain b, nor mutate any bytes within b[:len(b)].
 func (x *ComplexCommented) AppendText(b []byte) ([]byte, error) {
-	return append(b, x.String()...), nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
